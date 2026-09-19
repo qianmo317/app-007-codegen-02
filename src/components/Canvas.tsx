@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import type { Plan, Table, Command } from '../types';
 import { generateId } from '../utils';
+import TablePlanner from './TablePlanner';
 
 interface Props {
   plan: Plan;
@@ -16,6 +17,7 @@ export default function Canvas({ plan, dragGuestId, setDragGuestId, conflictMap,
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [selectedTableId, setSelectedTableId] = useState<string | null>(null);
   const [showTableMenu, setShowTableMenu] = useState<{ x: number; y: number } | null>(null);
+  const [showPlanner, setShowPlanner] = useState(false);
 
   const handleDropOnCanvas = (e: React.DragEvent) => {
     e.preventDefault();
@@ -110,6 +112,7 @@ export default function Canvas({ plan, dragGuestId, setDragGuestId, conflictMap,
   return (
     <div className="canvas-panel">
       <div className="canvas-toolbar">
+        <button onClick={() => setShowPlanner(true)}>桌数测算</button>
         <button onClick={() => addTable('round')}>+ 圆桌</button>
         <button onClick={() => addTable('rect')}>+ 长条桌</button>
       </div>
@@ -200,6 +203,7 @@ export default function Canvas({ plan, dragGuestId, setDragGuestId, conflictMap,
           <div onClick={() => { addTable('rect'); setShowTableMenu(null); }}>添加长条桌</div>
         </div>
       )}
+      {showPlanner && <TablePlanner plan={plan} dispatch={dispatch} onClose={() => setShowPlanner(false)} />}
     </div>
   );
 }

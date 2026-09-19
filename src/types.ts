@@ -50,4 +50,4 @@ export type Command =
   | { type: 'moveGuest'; guestId: string; fromTableId: string | null; toTableId: string | null; toIndex?: number }
   | { type: 'batch'; commands: Command[] };
 
-export const TAG_OPTIONS = ['男方亲属', '女方亲属', '同事', '同学', '儿童', '素食'];
+export const TAG_OPTIONS = ['男方亲属', '女方亲属', '长辈', '同事', '同学', '儿童', '素食'];
