@@ -44,6 +44,13 @@ export default function Home() {
         <h1>婚宴座次编排器</h1>
         <button className="btn-primary" onClick={handleNew}>新建方案</button>
       </header>
+      <div className="estimate-entry" onClick={() => navigate('/estimate')} role="button" tabIndex={0}>
+        <div>
+          <h3>🧮 桌数测算</h3>
+          <p>定下总人数和每桌坐几位，算清要摆几桌、每桌坐谁、不满桌人均多少钱，以及增减一桌的后果。</p>
+        </div>
+        <span className="estimate-entry-arrow">去测算 →</span>
+      </div>
       <div className="plans-list">
         {plans.length === 0 && (
           <div className="empty-state">

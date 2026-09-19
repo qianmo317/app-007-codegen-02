@@ -856,3 +856,261 @@ html, body, #root {
   font-size: 18px;
   color: #888;
 }
+
+/* ===== 桌数测算入口卡片（首页） ===== */
+.estimate-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #fff7f2, #fdeee0);
+  border: 1px solid #e8c9a0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.estimate-entry:hover {
+  box-shadow: 0 4px 14px rgba(192, 57, 43, 0.15);
+  transform: translateY(-1px);
+}
+.estimate-entry h3 {
+  margin: 0 0 4px;
+  color: #c0392b;
+  font-size: 18px;
+}
+.estimate-entry p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+}
+.estimate-entry-arrow {
+  color: #c0392b;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ===== 桌数测算页 ===== */
+.te-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+.te-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.te-header h1 {
+  margin: 0;
+  color: #c0392b;
+  font-size: 26px;
+}
+.te-back {
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+}
+.te-back:hover { color: #c0392b; }
+.te-intro {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 22px;
+}
+.te-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .te-layout { grid-template-columns: 1fr; }
+}
+.te-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.te-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 700px) {
+  .te-two-col { grid-template-columns: 1fr; }
+}
+.te-card {
+  background: #fff;
+  border: 1px solid #eee3d6;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 4px rgba(120, 80, 40, 0.06);
+}
+.te-card h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  color: #8a3a20;
+}
+.te-card h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+.te-form {
+  position: sticky;
+  top: 16px;
+}
+@media (max-width: 900px) {
+  .te-form { position: static; }
+}
+.te-form h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #8a3a20;
+}
+.te-field-group {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #eadfce;
+}
+.te-field-group:last-child { border-bottom: none; }
+.te-group-title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #999;
+}
+.te-group-title.groom { color: #c0392b; }
+.te-group-title.bride { color: #b07a1a; }
+.te-field-group label {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+}
+.te-field-group input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid #d9cbb8;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.te-field-group input:focus {
+  outline: none;
+  border-color: #c0392b;
+}
+.te-errors {
+  background: #fdecea;
+  border: 1px solid #f5c6c0;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.te-errors p { margin: 4px 0; color: #b03a2e; font-size: 13px; }
+
+.te-kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.te-kpi {
+  flex: 1 1 70px;
+  background: #fdf8f2;
+  border-radius: 8px;
+  padding: 10px 8px;
+  text-align: center;
+}
+.te-kpi-row.big .te-kpi { flex: 1 1 110px; padding: 14px 8px; }
+.te-kpi-num {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  color: #8a3a20;
+  line-height: 1.2;
+}
+.te-kpi.highlight {
+  background: #c0392b;
+}
+.te-kpi.highlight .te-kpi-num,
+.te-kpi.highlight .te-kpi-label { color: #fff; }
+.te-kpi-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.te-table-list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.te-table-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.te-row-full { background: #eef7ee; }
+.te-row-partial { background: #fdf3e0; }
+.te-row-empty { background: #f4f4f4; color: #999; }
+.te-table-name { font-weight: 600; min-width: 110px; }
+.te-tag {
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+.te-row-full .te-tag { background: #2e7d32; color: #fff; }
+.te-row-partial .te-tag { background: #e08a1e; color: #fff; }
+.te-cost { margin-left: auto; }
+.te-money { color: #c0392b; font-weight: 600; }
+.te-muted { color: #aaa; }
+.te-empty { color: #999; background: #fafafa; }
+
+.te-derivation {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  background: #f7f4ee;
+  border-left: 3px solid #d4c4a8;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #777;
+}
+.side-accent,
+.groom-accent { border-top: 3px solid #c0392b; }
+.bride-accent { border-top: 3px solid #d4a017; }
+
+.te-scenario.te-ok { border-top: 3px solid #2e7d32; }
+.te-scenario.te-bad { border-top: 3px solid #c0392b; }
+.te-scenario.te-warn { border-top: 3px solid #e08a1e; }
+.te-scenario-summary { font-size: 14px; line-height: 1.7; margin: 0 0 10px; }
+.te-scenario-meta { margin: 0 0 10px; padding-left: 18px; font-size: 12px; color: #888; }
+.te-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-ok { background: #e6f4e6; color: #2e7d32; }
+.badge-bad { background: #fdecea; color: #c0392b; }
+
+.te-warning-card { border-top: 3px solid #e08a1e; }
+.te-warning-item { margin-bottom: 10px; }
+.te-warning-item:last-child { margin-bottom: 0; }
+.te-warning-item > p { margin: 0; font-size: 14px; line-height: 1.7; color: #8a5a10; }
+.te-ok-card { border-top: 3px solid #2e7d32; }
+.te-ok-card p { margin: 0; font-size: 14px; line-height: 1.7; color: #2e5f33; }
+.te-danger-card { border-top: 3px solid #c0392b; }
+.te-venue-message { margin: 0; font-size: 15px; line-height: 1.7; font-weight: 600; color: #8a3a20; }
